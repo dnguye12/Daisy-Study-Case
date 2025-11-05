@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1761949486515,
+      "tag": "0000_rare_viper",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1762031444870,
+      "tag": "0001_youthful_phalanx",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1762090640419,
+      "tag": "0002_pretty_ser_duncan",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1762127634796,
+      "tag": "0003_perfect_power_pack",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1762287641382,
+      "tag": "0004_great_norrin_radd",
+      "breakpoints": true
+    }
+  ]
+}

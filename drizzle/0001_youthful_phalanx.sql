@@ -1,0 +1,1 @@
+ALTER TABLE "ateliers" ADD COLUMN "title" text DEFAULT '';

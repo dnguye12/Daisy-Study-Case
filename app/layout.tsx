@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Figtree, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import { NextIntlClientProvider } from "next-intl";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const figTree = Figtree({
+  variable: "--font-figtree",
+  subsets: ["latin"]
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +29,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${figTree.variable} ${poppins.variable} antialiased`}
       >
-        {children}
+        <NextIntlClientProvider>
+          <main className="flex flex-col min-h-screen">
+            {children}
+            <Navbar />
+            <Toaster position="top-center" />
+          </main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,0 +1,37 @@
+{
+    "HomePage": {
+        "Guest": {
+            "Welcome": "Welcome",
+            "Title": "You Haven't Logged In Yet",
+            "Desc": "Our workshop management awaits you. Get started by going to the login page.",
+            "Login": "Login"
+        },
+        "User": {
+            "Workshops": "Workshops",
+            "Add_Workshop": "Add a workshop",
+            "Displaying": "Displaying {count} workshops"
+        }
+    },
+    "Navbar": {
+        "Home": "Home",
+        "Calender": "Calender",
+        "Settings": "Settings",
+        "Logout": "Logout"
+    },
+    "Login": {
+        "Line1": "The first B2B SaaS dedicated to creative and artistic workshops",
+        "Line2": "Share. Create. We'll take care of the rest.",
+        "Username": "Username",
+        "Login": "Login"
+    },
+    "Add_Workshop": {
+        "Add_Workshop": "Adding a workshop",
+        "Title": "Title",
+        "Title_Placeholder": "Workshop title",
+        "Desc": "Description",
+        "Desc_Placeholder": "Workshop description",
+        "Submit": "Add workshop",
+        "Create_Success": "Workshop created successfully",
+        "Create_Fail": "Error creating workshop"
+    }
+}
