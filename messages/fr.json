@@ -44,7 +44,8 @@
         "Delete_Event": "Supprimer l'événement",
         "Delete_This": "Supprimer uniquement cet événement",
         "Delete_All": "Supprimer tous les événements",
-        "Delete": "Supprimer"
+        "Delete": "Supprimer",
+        "Delete_Success": "Creneau supprimée avec succès"
     },
     "Add_Creneau": {
         "Capacity": "Capacité",
@@ -62,7 +63,9 @@
         "End Date": "Date de fin",
         "Select Date": "Sélectionner une date",
         "Occurrences": "Occurrences",
-        "Create": "Créer"
+        "Create": "Créer",
+        "Class_Success": "Creneau créée avec succès",
+        "Class_Fail": "Erreur de la création du creneau"
     },
     "Edit_Workshop": {
         "Title": "Titre",

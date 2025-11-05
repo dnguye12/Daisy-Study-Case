@@ -44,7 +44,8 @@
         "Delete_Event": "Delete event",
         "Delete_This": "Delete just this event",
         "Delete_All": "Delete all events",
-        "Delete": "Delete"
+        "Delete": "Delete",
+        "Delete_Success": "Class deleted successfully"
     },
     "Add_Creneau": {
         "Capacity": "Capacity",
@@ -62,7 +63,9 @@
         "End Date": "End date",
         "Select Date": "Select date",
         "Occurrences": "Occurrences",
-        "Create": "Create"
+        "Create": "Create",
+        "Class_Success": "Class created successfully",
+        "Class_Fail": "Error creating class"
     },
     "Edit_Workshop": {
         "Title": "Title",

@@ -23,7 +23,7 @@ const Navbar = async () => {
                     <CalendarDaysIcon />
                 </Button>
             </Link>
-            <NavbarLogout />
+            <NavbarLogout user={user}/>
         </nav>
     );
 }

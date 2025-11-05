@@ -14,6 +14,7 @@ import { Dispatch, SetStateAction, useMemo, useState } from "react";
 import { rrulestr } from "rrule";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 
 type DeleteMode = 'one' | 'all'
 
@@ -117,6 +118,7 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
         }
         setOpenDelete(false)
         setItemToDelete(null)
+        toast.success(t("Delete_Success"))
         router.refresh()
         setNeedFetch(true)
     }

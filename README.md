@@ -1,48 +1,42 @@
-# 👋Cat Chat README
+# 👋Daisy Study Case README
 
-Feature choisie: Créneaux & Capacité
-<br/>
+Topic chose: **Créneaux & Capacité**
+* Liste des ateliers → bouton “+ Ajouter un créneau”
+* Formulaire : date/heure, durée, capacité, prix
+* Confirmation + feedback visuel (toast ou banner)
+* États à gérer : validation minimale, succès, erreur
 <br/>
 Demo link:<br/>
 https://daisy-study-case.vercel.app/
 <br/><br/>
 
-This project was created as part of my application for an internship in the role of a software engineer in Mistral.
-
-> This README is designed for reviewers. It’s easy to follow, and makes the project straightforward to run and test locally.
-<br/>
-
-## 🔧Features
-* **Multi-model chat:** Switch between Mistral models at any time.
-* **Chat completion**: Talk directly to the module with Mistral Chat Completion API.
-* **Persistent history:** Store chats & messages in Postgres database via Drizzle.
-* **Edit & re-run:** Edit any message and re-generate.
-* **Branching:** Fork a chat at any message, quick branch switching.
-* **Voice mode:** Push-to-talk recording, send audio to API, stream TTS back.
-* **Image & PDF support:** Upload files and let the model see/read them.
-* **UI:** Clean and responsive user interface.
-<br>
-
 ## 💡Tech Stack
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
-[MistralAI]: https://img.shields.io/badge/mistralai-FA520F?style=for-the-badge&logo=mistralai&logoColor=white
-[Mistral-url]: https://mistral.ai/
 [Drizzle]: https://img.shields.io/badge/drizzle-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black
 [Drizzlel-url]: https://orm.drizzle.team/
 [Neon]: https://img.shields.io/badge/neondb-47A248?style=for-the-badge&logo=postgresql&logoColor=white
 [Neon-url]: https://neon.com/
-[Uploadthing]: https://img.shields.io/badge/uploadthing-FF000F?style=for-the-badge&logo=databricks&logoColor=white
-[Uploadthing-url]: https://uploadthing.com/
+[ShadCN]: https://img.shields.io/badge/shadcnui-000000?style=for-the-badge&logo=shadcnui&logoColor=white
+[ShadCN-url]: https://ui.shadcn.com/
 [ShadCN]: https://img.shields.io/badge/shadcnui-000000?style=for-the-badge&logo=shadcnui&logoColor=white
 [ShadCN-url]: https://ui.shadcn.com/
 * [![Next][Next.js]][Next-url] : NextJS for full-stack development
-* [![MistralAI][MistralAI]][Mistral-url] : Mistral AI API
 * [![Drizzle][Drizzle]][Drizzlel-url] : Database ORM
 * [![Neon][Neon]][Neon-url] : Neon DB for Postgre database
-* [![Uploadthing][Uploadthing]][Uploadthing-url] : Handle uploading images and PDF files
 * [![ShadCN][ShadCN]][ShadCN-url] :  UI library
-<br>
+<br/>
+
+## 🌸Décisions UI/UX
+* **Interactive calendar**: Display the events using a calendar
+* **Respect DA Daisy**: Font and color
+* **Toast**: For feedback visual
+<br/>
+
+## ✅États gérés
+**États gérés**: validation minimale, succès, erreur
+<br/>
+<br/>
 
 ## 📖Getting Started
 #### 1) Prerequisites
@@ -64,44 +58,13 @@ bun install
 ```
 <br/>
 
-3. Get a Mistral API Key<br>
-Go to https://console.mistral.ai/home
-![](https://i.ibb.co/N2ny86Hy/001.png)
-Create a new API Key
-![](https://i.ibb.co/xtTXkDRZ/002.png)
-Copy your new API Key
-![](https://i.ibb.co/ZRw9TpSC/003.png?v2)
-
-<br>
-
-4. Setup a Neon Database<br>
-Create a new Neon DB
-![](https://i.ibb.co/rKZ1XL2g/004.png)
-Setup the name and location
-![](https://i.ibb.co/M51Gcncb/005.png)
-Click on one of these to get the database URL
-![](https://i.ibb.co/39mH4q5k/006.png)
-Copy this URL string
-![](https://i.ibb.co/MQzYS82/007.png?v2)
-
-<br>
-
-5. Setup  an UploadThing account<br>
-Create a new project
-![](https://i.ibb.co/yzn1tns/008.png)
-Open this tab
-![](https://i.ibb.co/95w9n2T/009.png)
-Copy your UploadThing API Key
-![](https://i.ibb.co/HDRhbGR7/010.png?v2)
-
+3. Setup a Neon Database
 <br>
 
 #### 2) Environment variables
 Create .env at the project root with these variables:
 ```bash
 DATABASE_URL="..."
-MISTRAL_API_KEY="..."
-UPLOADTHING_TOKEN='...'
 ```
 <br />
 
@@ -140,6 +103,3 @@ pnpm dev
 bun dev
 ```
 <br />
-
-## 🤗Contact Me
-My portifolio: https://www.duc-huy.com/

@@ -16,6 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useRouter } from "next/navigation"
 import { useTranslations } from "next-intl"
+import { toast } from "sonner"
 
 const weekdays = [
     { key: "MO", label: "Mon" },
@@ -124,10 +125,12 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
             })
 
             if (res.ok) {
+                toast.success(t("Class_Success"))
                 router.refresh()
             }
         } catch (error) {
             console.log(error)
+            toast.error(t("Class_Fail"))
         } finally {
             setIsSubmitting(false)
             form.reset()
