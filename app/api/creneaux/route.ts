@@ -11,6 +11,7 @@ const bodySchema = z.object({
     startTime: z.string(),
     endTime: z.string(),
     title: z.string().optional(),
+    price: z.number(),
     capacity: z.number().int().min(0).default(0),
     recurrence: z
         .object({
@@ -73,6 +74,7 @@ export async function POST(req: NextRequest) {
         const [creneau] = await db.insert(creneaux).values({
             atelierId: input.atelierId,
             title: input.title,
+            price: input.price,
             capacity: input.capacity,
             startAt: startLocal,
             endAt: endLocal,

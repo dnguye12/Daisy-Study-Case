@@ -1,10 +1,10 @@
 # 👋Daisy Study Case README
 
-Topic chose: **Créneaux & Capacité**
-* Liste des ateliers → bouton “+ Ajouter un créneau”
-* Formulaire : date/heure, durée, capacité, prix
-* Confirmation + feedback visuel (toast ou banner)
-* États à gérer : validation minimale, succès, erreur
+Topic chosen: **Time Slots & Capacity**
+* Workshops list → “+ Add a time slot” button
+* Form: date/time, duration, capacity, price
+* Confirmation + visual feedback (toast or banner)
+* States to handle: minimal validation, success, error
 <br/>
 Demo link:<br/>
 https://daisy-study-case.vercel.app/
@@ -34,7 +34,7 @@ https://daisy-study-case.vercel.app/
 <br/>
 
 ## ✅États gérés
-**États gérés**: validation minimale, succès, erreur
+**États gérés**: minimal validation, success, error
 <br/>
 <br/>
 

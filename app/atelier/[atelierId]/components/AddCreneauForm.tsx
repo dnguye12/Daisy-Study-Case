@@ -30,6 +30,7 @@ const weekdays = [
 
 const formSchema = z.object({
     capacity: z.coerce.number().int().min(1, "Capacity needs to be at least 1"),
+    price: z.coerce.number(),
     date: z.date(),
     startTime: z.string(),
     endTime: z.string(),
@@ -57,6 +58,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
         mode: "onChange",
         defaultValues: {
             capacity: 1,
+            price: 0,
             date: helperDate,
             startTime: "14:00",
             endTime: "15:00",
@@ -97,6 +99,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
             const payload = {
                 atelierId,
                 title: atelierTitle,
+                price: data.price,
                 capacity: data.capacity,
                 date: isoDate(data.date),
                 startTime: data.startTime,
@@ -155,6 +158,23 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                                         min={1}
                                         value={field.value === undefined || field.value === null ? "" : String(field.value)}
                                         onChange={(e) => field.onChange(e.target.value === "" ? "" : Number(e.target.value))}
+                                    />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    ></FormField>
+                    <FormField
+                        control={form.control}
+                        name="price"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel className="text-xs font-semibold">Price</FormLabel>
+                                <FormControl>
+                                    <Input
+                                        type="number"
+                                        className=" bg-daisy-blue text-xs"
+                                        {...field}
                                     />
                                 </FormControl>
                                 <FormMessage />

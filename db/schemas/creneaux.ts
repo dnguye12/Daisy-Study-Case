@@ -8,6 +8,7 @@ export const creneaux = pgTable("creanaux", {
     }),
     title: text("title"),
     capacity: integer("capacity").notNull(),
+    price: integer("price").notNull(),
 
     startAt: timestamp("start_at").notNull(),
     endAt: timestamp("end_at").notNull(),

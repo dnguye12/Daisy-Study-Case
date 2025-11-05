@@ -46,7 +46,8 @@ const CalendarToday = ({ selectedDate, events }: CalendarTodayProps) => {
                         title: e.title,
                         start,
                         end,
-                        rrule: e.rrule
+                        rrule: e.rrule,
+                        price: e.price
                     })
                 }
             } else {
@@ -57,7 +58,8 @@ const CalendarToday = ({ selectedDate, events }: CalendarTodayProps) => {
                         id: `${e.id}`,
                         title: e.title,
                         start,
-                        end
+                        end,
+                        price: e.price
                     })
                 }
             }
@@ -73,8 +75,9 @@ const CalendarToday = ({ selectedDate, events }: CalendarTodayProps) => {
             <div className="py-2 space-y-2">{items.map((item) => (
                 <div key={item.id} className=" bg-daisy-accent rounded-lg p-2 text-white">
                     <p>{item.title || "Untitled"}</p>
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col">
                         <p>{timeFormat(item.start)} - {timeFormat(item.end)}</p>
+                        <p>€{item.price}</p>
                     </div>
                 </div>
             ))}</div>

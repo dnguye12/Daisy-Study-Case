@@ -70,7 +70,8 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
                         title: e.title,
                         start,
                         end,
-                        rrule: e.rrule
+                        rrule: e.rrule,
+                        price: e.price
                     })
                 }
             } else {
@@ -81,7 +82,8 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
                         id: `${e.id}`,
                         title: e.title,
                         start,
-                        end
+                        end,
+                        price: e.price
                     })
                 }
             }
@@ -130,7 +132,10 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
                 <div key={item.id} className=" bg-daisy-accent rounded-lg p-2 text-white">
                     <p>{item.title || "Untitled"}</p>
                     <div className="flex justify-between items-center">
+                        <div>
                         <p>{timeFormat(item.start)} - {timeFormat(item.end)}</p>
+                        <p>€{item.price}</p>
+                        </div>
                         <Dialog open={openDelete} onOpenChange={setOpenDelete}>
                             <DialogTrigger asChild>
                                 <Button variant={"ghost"} size={"icon-sm"} className="rounded-md" onClick={() => setItemToDelete(item)}><Trash2Icon /></Button>

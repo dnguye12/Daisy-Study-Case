@@ -42,7 +42,8 @@ const AtelierCalendar = ({ atelierId, onAddTimetable, selectedDate, setSelectedD
                             end: c.endAt,
                             rrule: c.rrule ?? null,
                             duration: ms,
-                            exdate: c.exdate
+                            exdate: c.exdate,
+                            price: c.price
                         };
                     }))
 
