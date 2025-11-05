@@ -136,10 +136,11 @@
 
 body {
   font-family: var(--font-poppins);
+  @apply bg-daisy-muted
 }
 
 .page-layout {
-  @apply flex-1 bg-daisy-muted p-4 w-full;
+  @apply flex-1 bg-daisy-muted p-4 container mx-auto max-w-5xl!;
 }
 
 .fc-toolbar-title {
