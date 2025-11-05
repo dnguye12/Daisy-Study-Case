@@ -180,3 +180,7 @@ body {
 .fc-daygrid-day-events {
   @apply my-0!
 }
+
+.fc-timegrid-axis-cushion, .fc-timegrid-slot-label-cushion {
+  @apply text-xs
+}
