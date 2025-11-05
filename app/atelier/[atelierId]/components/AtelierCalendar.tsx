@@ -12,42 +12,47 @@ interface AtelierCalendarProps {
     atelierId: string;
     onAddTimetable?: () => void;
     selectedDate: Date | null;
-    setSelectedDate: (date: Date) => void
+    setSelectedDate: (date: Date) => void;
 }
 
 const AtelierCalendar = ({ atelierId, onAddTimetable, selectedDate, setSelectedDate }: AtelierCalendarProps) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [events, setEvents] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(true)
-    
+    const [needFetch, setNeedFetch] = useState<boolean>(true)
 
     useEffect(() => {
         (async () => {
-            try {
-                const res = await fetch(`/api/ateliers/${atelierId}/creneaux`, {
-                    method: "GET"
-                })
-                const data = await res.json()
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                setEvents(data.map((c: any) => {
-                    const ms = new Date(c.endAt).getTime() - new Date(c.startAt).getTime()
-                    return {
-                        id: c.id,
-                        title: c.title ?? "",
-                        start: c.startAt,
-                        end: c.endAt,
-                        rrule: c.rrule ?? null,
-                        duration: ms,
-                        exdate: c.exdate
-                    };
-                }))
-            } catch (error) {
-                console.log(error)
-            } finally {
-                setIsLoading(false)
+            if (needFetch) {
+                try {
+                    const res = await fetch(`/api/ateliers/${atelierId}/creneaux`, {
+                        method: "GET",
+                        cache: "no-store"
+                    })
+                    const data = await res.json()
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    setEvents(data.map((c: any) => {
+                        const ms = new Date(c.endAt).getTime() - new Date(c.startAt).getTime()
+                        return {
+                            id: c.id,
+                            title: c.title ?? "",
+                            start: c.startAt,
+                            end: c.endAt,
+                            rrule: c.rrule ?? null,
+                            duration: ms,
+                            exdate: c.exdate
+                        };
+                    }))
+
+                    setNeedFetch(false)
+                } catch (error) {
+                    console.log(error)
+                } finally {
+                    setIsLoading(false)
+                }
             }
         })()
-    }, [atelierId])
+    }, [atelierId, needFetch])
 
     if (isLoading) {
         return <div>...Loading </div>
@@ -88,7 +93,7 @@ const AtelierCalendar = ({ atelierId, onAddTimetable, selectedDate, setSelectedD
                 }}
             />
 
-            {selectedDate && <AtelierToday selectedDate={selectedDate} events={events} onAddTimetable={onAddTimetable} />}
+            {selectedDate && <AtelierToday selectedDate={selectedDate} events={events} onAddTimetable={onAddTimetable} setNeedFetch={setNeedFetch} />}
         </div>
     );
 }

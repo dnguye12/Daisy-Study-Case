@@ -44,8 +44,6 @@ const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => 
         </div>
     }
 
-    console.log(atelier)
-
     return (
         <div className="page-layout flex flex-col gap-y-2">
             <img src={atelier?.image} className="w-full aspect-video mx-auto p-2 bg-white rounded-lg border" />
@@ -62,7 +60,7 @@ const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => 
                         </div>
                         <AtelierDescription desc={atelier?.description ?? ""} />
                         <Separator />
-                        <AtelierCalendar atelierId={atelierId} onAddTimetable={() => setMode("addTimetable")} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+                        <AtelierCalendar atelierId={atelierId} onAddTimetable={() => setMode("addTimetable")} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
                     </>
                 )
             }

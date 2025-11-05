@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { timeFormat } from "@/lib/utils";
 import { PlusIcon, Trash2Icon } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Dispatch, SetStateAction, useMemo, useState } from "react";
 import { rrulestr } from "rrule";
 import { useRouter } from "next/navigation";
 
@@ -19,17 +19,17 @@ type DeleteMode = 'one' | 'all'
 interface AtelierTodayProps {
     selectedDate: Date,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    events: any[],
-    onAddTimetable?: () => void
+    events: any[];
+    onAddTimetable?: () => void;
+    setNeedFetch: Dispatch<SetStateAction<boolean>>;
 }
 
-const AtelierToday = ({ selectedDate, events, onAddTimetable }: AtelierTodayProps) => {
+const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: AtelierTodayProps) => {
     const [openDelete, setOpenDelete] = useState<boolean>(false)
     const [deleteMode, setDeleteMode] = useState<DeleteMode>("one")
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [itemToDelete, setItemToDelete] = useState<any | null>(null)
     const router = useRouter()
-
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const items = useMemo<any[]>(() => {
@@ -116,6 +116,7 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable }: AtelierTodayProp
         setOpenDelete(false)
         setItemToDelete(null)
         router.refresh()
+        setNeedFetch(true)
     }
 
     return (
