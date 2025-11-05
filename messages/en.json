@@ -33,5 +33,45 @@
         "Submit": "Add workshop",
         "Create_Success": "Workshop created successfully",
         "Create_Fail": "Error creating workshop"
+    },
+    "Atelier_Page": {
+        "Add_Class": "Add a class",
+        "Edit_Workshop": "Edit workshop",
+        "Desc": "Description",
+        "Discard": "Discard",
+        "See_More": "See more",
+        "See_Less": "See less",
+        "Delete_Event": "Delete event",
+        "Delete_This": "Delete just this event",
+        "Delete_All": "Delete all events",
+        "Delete": "Delete"
+    },
+    "Add_Creneau": {
+        "Capacity": "Capacity",
+        "Date_Time": "Date & time",
+        "Repeat": "Repeat",
+        "No_Repeat": "Doesn’t repeat",
+        "Daily": "Daily",
+        "Weekly": "Weekly",
+        "Monthly": "Monthly",
+        "Weekly_On": "Weekly on",
+        "End_Repeat": "End repeat",
+        "Never": "Never",
+        "On_Date": "On date",
+        "After N": "After N occurrences",
+        "End Date": "End date",
+        "Select Date": "Select date",
+        "Occurrences": "Occurrences",
+        "Create": "Create"
+    },
+    "Edit_Workshop": {
+        "Title": "Title",
+        "Desc": "Description",
+        "Update": "Update",
+        "Delete": "Delete atelier",
+        "Line1": "Are you sure?",
+        "Line2": "Deleting this workshop is a permanent action.",
+        "Cancel": "Cancel",
+        "Confirm": "Confirm"
     }
 }

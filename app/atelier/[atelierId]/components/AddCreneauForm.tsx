@@ -15,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useRouter } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 const weekdays = [
     { key: "MO", label: "Mon" },
@@ -48,6 +49,7 @@ interface AddCreneauFormProps {
 const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAddTimetable }: AddCreneauFormProps) => {
     const router = useRouter()
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+    const t = useTranslations("Add_Creneau")
 
     const form = useForm<z.input<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -142,7 +144,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                         name="capacity"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-xs font-semibold">Capacity</FormLabel>
+                                <FormLabel className="text-xs font-semibold">{t("Capacity")}</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="number"
@@ -156,7 +158,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                             </FormItem>
                         )}
                     ></FormField>
-                    <FormLabel className="text-xs font-semibold">Date & time</FormLabel>
+                    <FormLabel className="text-xs font-semibold">{t("Date_Time")}</FormLabel>
                     <FormField
                         control={form.control}
                         name="date"
@@ -233,7 +235,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                         name="repeat"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-xs font-semibold">Repeat</FormLabel>
+                                <FormLabel className="text-xs font-semibold">{t("Repeat")}</FormLabel>
                                 <Select value={field.value} onValueChange={field.onChange}>
                                     <FormControl>
                                         <SelectTrigger className="bg-daisy-blue text-sm">
@@ -242,10 +244,10 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                                     </FormControl>
                                     <FormMessage />
                                     <SelectContent>
-                                        <SelectItem value="none">Doesn’t repeat</SelectItem>
-                                        <SelectItem value="DAILY">Daily</SelectItem>
-                                        <SelectItem value="WEEKLY">Weekly</SelectItem>
-                                        <SelectItem value="MONTHLY">Monthly</SelectItem>
+                                        <SelectItem value="none">{t("No_Repeat")}</SelectItem>
+                                        <SelectItem value="DAILY">{t("Daily")}</SelectItem>
+                                        <SelectItem value="WEEKLY">{t("Weekly")}</SelectItem>
+                                        <SelectItem value="MONTHLY">{t("Monthly")}</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </FormItem>
@@ -258,7 +260,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                             name="byDay"
                             render={() => (
                                 <FormItem>
-                                    <FormLabel className="text-xs font-semibold">Weekly on</FormLabel>
+                                    <FormLabel className="text-xs font-semibold">{t("Weekly_On")}</FormLabel>
                                     <div className="flex justify-between">
                                         {weekdays.map((w) => (
                                             <FormField
@@ -300,7 +302,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                             name="endKind"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="text-xs font-semibold">End repeat</FormLabel>
+                                    <FormLabel className="text-xs font-semibold">{t("End_Repeat")}</FormLabel>
                                     <FormControl>
                                         <RadioGroup
                                             onValueChange={field.onChange}
@@ -309,19 +311,19 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                                             <div className="flex items-center space-x-2">
                                                 <RadioGroupItem value="never" id="end-never" />
                                                 <label htmlFor="end-never" className="text-xs">
-                                                    Never
+                                                    {t("Never")}
                                                 </label>
                                             </div>
                                             <div className="flex items-center space-x-2">
                                                 <RadioGroupItem value="untilDate" id="end-until" />
                                                 <label htmlFor="end-until" className="text-xs">
-                                                    On date
+                                                    {t("On_Date")}
                                                 </label>
                                             </div>
                                             <div className="flex items-center space-x-2">
                                                 <RadioGroupItem value="count" id="end-count" />
                                                 <label htmlFor="end-count" className="text-xs">
-                                                    After N occurrences
+                                                    {t("After N")}
                                                 </label>
                                             </div>
                                         </RadioGroup>
@@ -338,7 +340,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                             name="untilDate"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="text-xs font-semibold">End date</FormLabel>
+                                    <FormLabel className="text-xs font-semibold">{t("End Date")}</FormLabel>
                                     <Popover>
                                         <PopoverTrigger asChild>
                                             <FormControl>
@@ -375,7 +377,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                             name="count"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="text-xs font-semibold">Occurrences</FormLabel>
+                                    <FormLabel className="text-xs font-semibold">{t("Occurrences")}</FormLabel>
                                     <FormControl>
                                         <Input
                                             type="number" min={1}
@@ -394,7 +396,7 @@ const AddCreneauForm = ({ atelierId, atelierTitle, helperDate = new Date(), onAd
                     )}
 
                     <Button variant={"daisyPrimary"} size={"sm"} type="submit" disabled={!!timeError || !!endDateError || !form.formState.isValid || isSubmitting} className="w-full rounded-lg mt-2">
-                        Create
+                        {t("Create")}
                     </Button>
                 </form>
             </Form>

@@ -1,5 +1,77 @@
 {
     "HomePage": {
-        "Workshops": "Ateliers"
+        "Guest": {
+            "Welcome": "Bienvenue",
+            "Title": "Vous n'êtes pas encore connecté",
+            "Desc": "Notre gestion d'ateliers vous attend. Commencez en vous rendant sur la page de connexion.",
+            "Login": "Connexion"
+        },
+        "User": {
+            "Workshops": "Ateliers",
+            "Add_Workshop": "Ajouter un atelier",
+            "Displaying": "Affichage de {count} ateliers"
+        }
+    },
+    "Navbar": {
+        "Home": "Accueil",
+        "Calender": "Calendrier",
+        "Settings": "Paramètres",
+        "Logout": "Déconnexion"
+    },
+    "Login": {
+        "Line1": "Le premier SaaS B2B dédié aux ateliers créatifs et artistiques",
+        "Line2": "Partagez. Créez. Nous nous occupons du reste.",
+        "Username": "Nom d'utilisateur",
+        "Login": "Connexion"
+    },
+    "Add_Workshop": {
+        "Add_Workshop": "Ajout d'un atelier",
+        "Title": "Titre",
+        "Title_Placeholder": "Titre de l'atelier",
+        "Desc": "Description",
+        "Desc_Placeholder": "Description de l'atelier",
+        "Submit": "Ajouter l'atelier",
+        "Create_Success": "Atelier créé avec succès",
+        "Create_Fail": "Erreur lors de la création de l'atelier"
+    },
+    "Atelier_Page": {
+        "Add_Class": "Ajouter un cours",
+        "Edit_Workshop": "Modifier l'atelier",
+        "Desc": "Description",
+        "Discard": "Annuler",
+        "See_More": "Voir plus",
+        "See_Less": "Voir moins",
+        "Delete_Event": "Supprimer l'événement",
+        "Delete_This": "Supprimer uniquement cet événement",
+        "Delete_All": "Supprimer tous les événements",
+        "Delete": "Supprimer"
+    },
+    "Add_Creneau": {
+        "Capacity": "Capacité",
+        "Date_Time": "Date et heure",
+        "Repeat": "Répétition",
+        "No_Repeat": "Ne se répète pas",
+        "Daily": "Quotidien",
+        "Weekly": "Hebdomadaire",
+        "Monthly": "Mensuel",
+        "Weekly_On": "Hebdomadaire le",
+        "End_Repeat": "Fin de la répétition",
+        "Never": "Jamais",
+        "On_Date": "À la date",
+        "After N": "Après N occurrences",
+        "End Date": "Date de fin",
+        "Select Date": "Sélectionner une date",
+        "Occurrences": "Occurrences",
+        "Create": "Créer"
+    },
+    "Edit_Workshop": {
+        "Title": "Titre",
+        "Desc": "Description",
+        "Update": "Mettre à jour",
+        "Delete": "Supprimer l'atelier",
+        "Line1": "Êtes-vous sûr ?",
+        "Line2": "La suppression de cet atelier est définitive.",
+        "Cancel": "Annuler",
+        "Confirm": "Confirmer"
     }
 }

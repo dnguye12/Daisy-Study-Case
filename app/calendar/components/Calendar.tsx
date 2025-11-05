@@ -7,6 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import rrulePlugin from '@fullcalendar/rrule';
 import { useEffect, useState } from "react";
 import CalendarToday from "./CalendarToday";
+import { useLocale } from "next-intl";
 
 interface CalendarProps {
     userId: string
@@ -17,6 +18,7 @@ const Calendar = ({ userId }: CalendarProps) => {
     const [events, setEvents] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [selectedDate, setSelectedDate] = useState<Date>(new Date())
+    const locale = useLocale()
 
     useEffect(() => {
         (async () => {
@@ -87,6 +89,7 @@ const Calendar = ({ userId }: CalendarProps) => {
                     const dayStart = new Date(start.getFullYear(), start.getMonth(), start.getDate());
                     setSelectedDate(dayStart);
                 }}
+                locale={locale}
             />
             {selectedDate && <CalendarToday selectedDate={selectedDate} events={events} />}
         </div>

@@ -13,6 +13,7 @@ import { PlusIcon, Trash2Icon } from "lucide-react";
 import { Dispatch, SetStateAction, useMemo, useState } from "react";
 import { rrulestr } from "rrule";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type DeleteMode = 'one' | 'all'
 
@@ -30,6 +31,7 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [itemToDelete, setItemToDelete] = useState<any | null>(null)
     const router = useRouter()
+    const t = useTranslations("Atelier_Page")
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const items = useMemo<any[]>(() => {
@@ -132,18 +134,18 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
                                 <Button variant={"ghost"} size={"icon-sm"} className="rounded-md" onClick={() => setItemToDelete(item)}><Trash2Icon /></Button>
                             </DialogTrigger>
                             <DialogContent>
-                                <DialogTitle>Delete event</DialogTitle>
+                                <DialogTitle>{t("Delete_Event")}</DialogTitle>
                                 <RadioGroup value={deleteMode} onValueChange={(v) => setDeleteMode(v as DeleteMode)}>
                                     <div className="flex items-center space-x-2">
                                         <RadioGroupItem value="one" id="option-one" />
-                                        <Label htmlFor="option-one">Delete just this event</Label>
+                                        <Label htmlFor="option-one">{t("Delete_This")}</Label>
                                     </div>
                                     <div className="flex items-center space-x-2">
                                         <RadioGroupItem value="all" id="option-two" />
-                                        <Label htmlFor="option-two">Delete all events</Label>
+                                        <Label htmlFor="option-two">{t("Delete_All")}</Label>
                                     </div>
                                 </RadioGroup>
-                                <Button variant={"daisyPrimary"} size={"sm"} className="w-full rounded-lg" onClick={onDelete}>Delete</Button>
+                                <Button variant={"daisyPrimary"} size={"sm"} className="w-full rounded-lg" onClick={onDelete}>{t("Delete")}</Button>
                             </DialogContent>
                         </Dialog>
 
@@ -151,7 +153,7 @@ const AtelierToday = ({ selectedDate, events, onAddTimetable, setNeedFetch }: At
                 </div>
             ))}</div>
             <Separator />
-            <Button size={"sm"} variant={"daisyPrimary"} onClick={onAddTimetable} className="mt-2 w-full rounded-lg"><PlusIcon />Add a class</Button>
+            <Button size={"sm"} variant={"daisyPrimary"} onClick={onAddTimetable} className="mt-2 w-full rounded-lg"><PlusIcon />{t("Add_Class")}</Button>
         </>
     );
 }

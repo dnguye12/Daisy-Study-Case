@@ -20,6 +20,7 @@ import { PencilIcon, Trash2Icon } from "lucide-react"
 import { Atelier } from "@/db/schemas/ateliers";
 import { Textarea } from "@/components/ui/textarea"
 import { useRouter } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 interface EditAtelierFormProps {
     atelier: Atelier;
@@ -35,6 +36,7 @@ const formSchema = z.object({
 const EditAtelierForm = ({ atelier, onAddTimetable, setAtelier }: EditAtelierFormProps) => {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
     const router = useRouter()
+    const t = useTranslations("Edit_Workshop")
 
     const form = useForm<z.input<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -90,7 +92,7 @@ const EditAtelierForm = ({ atelier, onAddTimetable, setAtelier }: EditAtelierFor
                         name="title"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-xs font-semibold">Title</FormLabel>
+                                <FormLabel className="text-xs font-semibold">{t("Title")}</FormLabel>
                                 <FormControl>
                                     <Input
                                         type="text"
@@ -108,7 +110,7 @@ const EditAtelierForm = ({ atelier, onAddTimetable, setAtelier }: EditAtelierFor
                         name="desc"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-xs font-semibold">Description</FormLabel>
+                                <FormLabel className="text-xs font-semibold">{t("Desc")}</FormLabel>
                                 <FormControl>
                                     <Textarea
                                         className="bg-daisy-blue text-xs"
@@ -121,22 +123,22 @@ const EditAtelierForm = ({ atelier, onAddTimetable, setAtelier }: EditAtelierFor
                     ></FormField>
 
                     <Button variant={"daisyPrimary"} size={"sm"} type="submit" disabled={!form.formState.isValid || isSubmitting} className="w-full rounded-lg mt-2">
-                        <PencilIcon /> Update
+                        <PencilIcon /> {t("Update")}
                     </Button>
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button variant={"destructive"} size={"sm"} type="button" disabled={isSubmitting} className="w-full rounded-lg"><Trash2Icon />Delete atelier</Button>
+                            <Button variant={"destructive"} size={"sm"} type="button" disabled={isSubmitting} className="w-full rounded-lg"><Trash2Icon />{t("Delete")}</Button>
                         </DialogTrigger>
                         <DialogContent>
-                            <DialogHeader>Are you sure?</DialogHeader>
+                            <DialogHeader>{t("Line1")}</DialogHeader>
                             <DialogDescription className="text-xs">
-                                Deleting this workshop is a permanent action.
+                                {t("Line2")}
                             </DialogDescription>
                             <DialogFooter className="flex flex-row items-center justify-end">
                                 <DialogClose asChild>
-                                    <Button variant={"outline"} size={"sm"} className="rounded-lg" disabled={isSubmitting}>Cancel</Button>
+                                    <Button variant={"outline"} size={"sm"} className="rounded-lg" disabled={isSubmitting}>{t("Cancel")}</Button>
                                 </DialogClose>
-                                <Button variant={"destructive"} size={"sm"} type="button" className="rounded-lg" onClick={onDelete} disabled={isSubmitting}>Confirm</Button>
+                                <Button variant={"destructive"} size={"sm"} type="button" className="rounded-lg" onClick={onDelete} disabled={isSubmitting}>{t("Confirm")}</Button>
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>

@@ -7,6 +7,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import rrulePlugin from '@fullcalendar/rrule';
 import AtelierToday from "./AtelierToday";
+import { useLocale } from "next-intl";
 
 interface AtelierCalendarProps {
     atelierId: string;
@@ -20,6 +21,7 @@ const AtelierCalendar = ({ atelierId, onAddTimetable, selectedDate, setSelectedD
     const [events, setEvents] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [needFetch, setNeedFetch] = useState<boolean>(true)
+    const locale = useLocale()
 
     useEffect(() => {
         (async () => {
@@ -77,7 +79,7 @@ const AtelierCalendar = ({ atelierId, onAddTimetable, selectedDate, setSelectedD
                     }
                 }}
                 events={events}
-                displayEventTime={false}           // hide the start time
+                displayEventTime={false}
                 eventDisplay="block"
                 eventTextColor="transparent"
                 dateClick={(e) => { setSelectedDate(e.date) }}
@@ -91,6 +93,7 @@ const AtelierCalendar = ({ atelierId, onAddTimetable, selectedDate, setSelectedD
                     const dayStart = new Date(start.getFullYear(), start.getMonth(), start.getDate());
                     setSelectedDate(dayStart);
                 }}
+                locale={locale}
             />
 
             {selectedDate && <AtelierToday selectedDate={selectedDate} events={events} onAddTimetable={onAddTimetable} setNeedFetch={setNeedFetch} />}

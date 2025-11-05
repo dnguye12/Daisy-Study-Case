@@ -176,3 +176,7 @@ body {
 .fc-timegrid-cols .fc-event-title.fc-sticky {
   @apply text-white text-xs
 }
+
+.fc-daygrid-day-events {
+  @apply my-0!
+}

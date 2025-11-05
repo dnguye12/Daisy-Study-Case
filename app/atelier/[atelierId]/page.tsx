@@ -10,8 +10,10 @@ import AddCreneauForm from "./components/AddCreneauForm";
 import AtelierDescription from "./components/AtelierDescription";
 import AtelierCalendar from "./components/AtelierCalendar";
 import EditAtelierForm from "./components/EditAtelierForm";
+import { useTranslations } from "next-intl";
 
 const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => {
+    const t = useTranslations("Atelier_Page")
     const { atelierId } = use(params)
     const [atelier, setAtelier] = useState<Atelier | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -38,10 +40,12 @@ const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => 
     }, [atelierId, isLoading])
 
     if (isLoading) {
-        <div className="page-layout">
-            <Skeleton className="w-full aspect-video bg-daisy-secondary mb-4" />
-            <Skeleton className="h-5 w-full bg-daisy-secondary mb-4" />
-        </div>
+        return (
+            <div className="page-layout">
+                <Skeleton className="w-full aspect-video bg-daisy-secondary mb-4" />
+                <Skeleton className="h-5 w-full bg-daisy-secondary mb-4" />
+            </div>
+        )
     }
 
     return (
@@ -55,12 +59,12 @@ const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => 
                 (
                     <>
                         <div className="flex items-center gap-2">
-                            <Button variant={"daisyPrimary"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("addTimetable") }}><PlusIcon /> Add a class</Button>
-                            <Button variant={"daisyAccent"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("editAtelier") }}><PencilIcon /> Edit workshop</Button>
+                            <Button variant={"daisyPrimary"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("addTimetable") }}><PlusIcon /> {t("Add_Class")}</Button>
+                            <Button variant={"daisyAccent"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("editAtelier") }}><PencilIcon /> {t("Edit_Workshop")}</Button>
                         </div>
                         <AtelierDescription desc={atelier?.description ?? ""} />
                         <Separator />
-                        <AtelierCalendar atelierId={atelierId} onAddTimetable={() => setMode("addTimetable")} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
+                        <AtelierCalendar atelierId={atelierId} onAddTimetable={() => setMode("addTimetable")} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
                     </>
                 )
             }
@@ -70,7 +74,7 @@ const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => 
                 (
                     <>
                         <div className="flex items-center">
-                            <Button variant={"outline"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("default") }}><CircleCheckIcon /> Discard</Button>
+                            <Button variant={"outline"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("default") }}><CircleCheckIcon /> {t("Discard")}</Button>
                         </div>
                         <Separator />
                         <AddCreneauForm atelierId={atelier?.id ?? ""} atelierTitle={atelier?.title ?? ""} helperDate={selectedDate ? selectedDate : undefined} onAddTimetable={() => setMode("default")} />
@@ -83,10 +87,10 @@ const AtelierPage = ({ params }: { params: Promise<{ atelierId: string }> }) => 
                 (
                     <>
                         <div className="flex items-center">
-                            <Button variant={"outline"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("default") }}><CircleCheckIcon /> Discard</Button>
+                            <Button variant={"outline"} size={"sm"} className="flex-1 rounded-md" onClick={() => { setMode("default") }}><CircleCheckIcon /> {t("Discard")}</Button>
                         </div>
                         <Separator />
-                        <EditAtelierForm atelier={atelier} onAddTimetable={() => setMode("default")} setAtelier={setAtelier}/>
+                        <EditAtelierForm atelier={atelier} onAddTimetable={() => setMode("default")} setAtelier={setAtelier} />
                     </>
                 )
             }
